@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>專業 ELV 工程方案 | CCTV 監控 · 門禁 · 廣播系統</title>
+    <title>TRINITY | 專業 ELV 弱電系統工程方案</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #003366;    /* 深藍色：專業、誠信 */
-            --secondary: #00a8e8;  /* 科技藍：創新、技術 */
-            --light-bg: #f8f9fa;
-            --text-dark: #2d3436;
+            --primary: #00BFA5;    /* 科技青色：配合名片主色 */
+            --primary-dark: #00897B;
+            --secondary: #2D3436;  /* 專業深灰 */
+            --light-bg: #FFFFFF;
+            --text-dark: #333333;
+            --text-gray: #636e72;
         }
 
         * { box-sizing: border-box; }
@@ -24,39 +26,39 @@
 
         /* 導航欄 */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: #ffffff;
             padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-        .logo-area { display: flex; align-items: center; gap: 10px; }
-        .logo-img { height: 45px; } /* 如果有 logo.png，會自動套用 */
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-img { height: 40px; } 
         .company-name { 
-            font-size: 1.4rem; 
+            font-size: 1.2rem; 
             font-weight: 700; 
-            color: var(--primary); 
-            letter-spacing: 1px;
+            color: var(--secondary); 
+            letter-spacing: 0.5px;
         }
 
         nav a {
             margin-left: 25px;
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--secondary);
             font-weight: 500;
             transition: 0.3s;
         }
-        nav a:hover { color: var(--secondary); }
+        nav a:hover { color: var(--primary); }
 
-        /* 主視覺 Banner */
+        /* Hero Banner */
         .hero {
-            background: linear-gradient(135deg, rgba(0,51,102,0.9), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80');
-            height: 80vh;
+            background: linear-gradient(135deg, rgba(45,52,54,0.85), rgba(0,191,165,0.4)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80');
+            height: 70vh;
             background-size: cover;
             background-position: center;
             display: flex;
@@ -67,64 +69,76 @@
             text-align: center;
             padding: 0 20px;
         }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.3rem; max-width: 800px; margin-bottom: 30px; opacity: 0.9; }
+        .hero h1 { font-size: 3rem; margin-bottom: 15px; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; }
         .btn {
-            background: var(--secondary);
+            background: var(--primary);
             color: white;
-            padding: 12px 35px;
+            padding: 14px 40px;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 4px;
             font-weight: bold;
             transition: 0.3s;
         }
-        .btn:hover { background: #0086ba; transform: scale(1.05); }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-        /* 工程服務區塊 */
-        .section { padding: 100px 10%; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; }
-        .section-title .underline { width: 70px; height: 4px; background: var(--secondary); margin: 0 auto; }
+        /* 服務區塊 */
+        .section { padding: 80px 10%; background: var(--light-bg); }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2rem; color: var(--secondary); margin-bottom: 10px; }
+        .section-title .underline { width: 50px; height: 3px; background: var(--primary); margin: 0 auto; }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
         .card {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.4s;
-            text-align: center;
+            padding: 35px;
+            border-bottom: 4px solid #eee;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
-        .card h3 { color: var(--primary); margin-top: 0; font-size: 1.5rem; }
-        .card p { color: #666; font-size: 0.95rem; }
+        .card:hover { 
+            border-bottom: 4px solid var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        .card h3 { color: var(--secondary); font-size: 1.3rem; margin-bottom: 15px; }
+        .card p { color: var(--text-gray); font-size: 0.95rem; }
 
         /* 聯絡資訊 */
-        .contact-bar {
-            background: var(--primary);
-            color: white;
-            padding: 60px 10%;
+        .contact-section {
+            background: #f1f2f6;
+            padding: 80px 10%;
             text-align: center;
         }
-        .contact-grid {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin-top: 30px;
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
-        .contact-item { font-size: 1.1rem; }
+        .contact-info-box h4 { color: var(--primary); margin-bottom: 10px; }
+        .contact-info-box p { font-size: 1rem; margin: 5px 0; }
 
-        footer { background: #1a1a1a; color: #777; text-align: center; padding: 30px; font-size: 0.85rem; }
+        footer { 
+            background: var(--secondary); 
+            color: #bdc3c7; 
+            text-align: center; 
+            padding: 40px 20px; 
+            font-size: 0.85rem; 
+        }
+        .footer-logo { color: white; font-weight: bold; font-size: 1.1rem; margin-bottom: 10px; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
-            header { flex-direction: column; gap: 15px; }
-            nav a { margin: 0 10px; }
+            header { flex-direction: column; padding: 20px; }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 10px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -133,48 +147,74 @@
     <header>
         <div class="logo-area">
             <img src="logo.png" alt="" class="logo-img" onerror="this.style.display='none'">
-            <div class="company-name">TRINITY TECHNOLOGY SOLUTIONS LIMITED</div>
+            <div class="company-name">TRINITY TECHNOLOGY SOLUTIONS LTD</div>
         </div>
         <nav>
-            <a href="#about">關於我們</a>
-            <a href="#services">工程項目</a>
+            <a href="#services">服務項目</a>
             <a href="#contact">聯絡我們</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>引領智慧弱電系統工程</h1>
-        <p>為您的企業提供一站式安全防禦與通信解決方案</p>
-        <a href="#contact" class="btn">立即諮詢方案</a>
+        <h1>天一科技系統有限公司</h1>
+        <p>專業 ELV 弱電系統承包商：CCTV | 門禁 | 廣播 | 網絡佈線</p>
+        <a href="https://wa.me/85298535101" class="btn">WhatsApp 快速諮詢</a>
     </section>
 
     <section id="services" class="section">
         <div class="section-title">
-            <h2>我們的專業服務</h2>
+            <h2>我們的專業範疇</h2>
             <div class="underline"></div>
         </div>
         <div class="services-grid">
             <div class="card">
                 <h3>CCTV 監控系統</h3>
-                <p>高清網絡攝錄 (IP Cam)、智能影像分析及 24/7 遠端監察，全面守護資產安全。</p>
+                <p>高清網絡攝錄、24/7 遠端監察及智能影像分析，確保資產與場所安全無虞。</p>
             </div>
             <div class="card">
-                <h3>ACS 門禁系統</h3>
-                <p>整合人臉辨識、HID 感應卡及手機雲端管理，精確控制人員進出與考勤。</p>
+                <h3>Access Control 門禁</h3>
+                <p>人臉辨識、感應卡及手機雲端管理系統，精確控制人員進出權限。</p>
             </div>
             <div class="card">
-                <h3>PA 廣播系統</h3>
-                <p>專業商業廣播、緊急疏散廣播及分區控制，確保訊息即時傳遞至每個角落。</p>
+                <h3>PA System 廣播系統</h3>
+                <p>專業商業音響、緊急疏散廣播及分區背景音樂控制，提供清晰的音頻解決方案。</p>
             </div>
             <div class="card">
-                <h3>網路工程 (Structured Cabling)</h3>
-                <p>光纖佈線、伺服器房架設及 Wi-Fi 網路覆蓋優化，建立穩定的弱電基礎設施。</p>
+                <h3>Structured Cabling</h3>
+                <p>光纖佈線、伺服器房架設及 Wi-Fi 網絡覆蓋，打造穩定可靠的弱電基礎設施。</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-bar">
-        <h2>準備好開始您的工程項目了嗎？</h2>
-        <div class="contact-grid">
-            <div class="contact-item">📞 電話：+852 9853 5101</div>
-            <div class="contact-
+    <section id="contact" class="contact-section">
+        <div class="section-title">
+            <h2>聯絡我們</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info-box">
+                <h4>辦公室地址</h4>
+                <p>Unit 2, 9/F, Lucida Industrial Building,</p>
+                <p>43-47 Wang Lung Street, Tsuen Wan, NT</p>
+            </div>
+            <div class="contact-info-box">
+                <h4>查詢熱線</h4>
+                <p>電話: 2320 1026</p>
+                <p>手機: 9853 5101 (Ian Tang)</p>
+            </div>
+            <div class="contact-info-box">
+                <h4>電子郵件</h4>
+                <p>ian.tang@trinitytechs.com</p>
+                <p>info@trinitytechs.com</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">TRINITY TECHNOLOGY SOLUTIONS LIMITED</div>
+        <p>&copy; 2024 天一科技系統有限公司 版權所有</p>
+        <p>Professional ELV System Contractor in Hong Kong</p>
+    </footer>
+
+</body>
+</html>
