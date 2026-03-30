@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRINITY | 每日施工檢查清單</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #00BFA5; --secondary: #2D3436; --bg: #f4f7f6; }
+        body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+        .container { max-width: 500px; margin: 0 auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: var(--secondary); border-left: 5px solid var(--primary); padding-left: 10px; margin-bottom: 20px; }
+        .group { margin-bottom: 25px; }
+        .group-title { font-weight: bold; color: var(--primary); margin-bottom: 10px; font-size: 1.1rem; }
+        .item { display: flex; align-items: center; margin-bottom: 12px; cursor: pointer; }
+        input[type="checkbox"] { width: 20px; height: 20px; margin-right: 12px; accent-color: var(--primary); }
+        input[type="text"] { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; }
+        .btn-send { background: #25d366; color: white; width: 100%; padding: 15px; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>TRINITY 施工日誌</h2>
+        
+        <div class="group">
+            <div class="group-title">基本資料</div>
+            <input type="text" id="siteName" placeholder="工程地點 (例如: 荃灣商廈)">
+            <input type="text" id="staffName" placeholder="負責人 (Ian / 師傅名)">
+        </div>
+
+        <div class="group">
+            <div class="group-title">1. 安全與準備</div>
+            <label class="item"><input type="checkbox" class="task" value="安全裝備已佩戴"> 個人防護裝備 (PPE) 已齊全</label>
+            <label class="item"><input type="checkbox" class="task" value="現場已做保護措施"> 現場已做地板/牆身保護</label>
+        </div>
+
+        <div class="group">
+            <div class="group-title">2. 技術施工 (ELV)</div>
+            <label class="item"><input type="checkbox" class="task" value="線路標籤已貼好"> 所有線路/配線架已貼標籤</label>
+            <label class="item"><input type="checkbox" class="task" value="設備安裝穩固"> 攝影機/讀卡器安裝穩固</label>
+            <label class="item"><input type="checkbox" class="task" value="系統測試通過"> 訊號/網絡測試 Ping 通</label>
+        </div>
+
+        <div class="group">
+            <div class="group-title">3. 完工與驗收</div>
+            <label class="item"><input type="checkbox" class="task" value="垃圾已清走"> 施工垃圾已清走並復原現場</label>
+            <label class="item"><input type="checkbox" class="task" value="已拍完工照"> 機櫃及設備已拍照存檔</label>
+        </div>
+
+        <button class="btn-send" onclick="sendWhatsApp()">發送 WhatsApp 報告</button>
+    </div>
+
+    <script>
+        function sendWhatsApp() {
+            let site = document.getElementById('siteName').value || "未填寫地點";
+            let staff = document.getElementById('staffName').value || "未填寫負責人";
+            let tasks = document.querySelectorAll('.task:checked');
+            let report = `*TRINITY 施工報告*%0A地點: ${site}%0A負責人: ${staff}%0A%0A*已完成項目:*%0A`;
+            
+            tasks.forEach(t => { report += `- ${t.value}%0A`; });
+            
+            // 填寫你的 WhatsApp 電話
+            window.open(`https://wa.me/85298535101?text=${report}`);
+        }
+    </script>
+</body>
+</html>
