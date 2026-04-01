@@ -3,30 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWE PA System (CO20/25) | TRINITY</title>
+    <title>AWE PA System Form | TRINITY</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #00BFA5; --secondary: #2D3436; --bg: #f4f7f6; }
-        body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); margin: 0; padding: 15px; }
-        .form-card { max-width: 500px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
-        .header { background: var(--secondary); color: white; padding: 25px; text-align: center; border-bottom: 5px solid var(--primary); }
-        .header h2 { margin: 0; font-size: 1.3rem; letter-spacing: 1px; }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: var(--bg); margin: 0; padding: 10px; }
+        .form-card { max-width: 500px; margin: 20px auto; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: var(--secondary); color: white; padding: 20px; text-align: center; border-bottom: 5px solid var(--primary); }
+        .header h2 { margin: 0; font-size: 1.2rem; }
         .content { padding: 20px; }
-        .section-title { background: #e0f7f4; color: var(--primary); padding: 8px 12px; font-weight: bold; border-left: 4px solid var(--primary); margin: 20px 0 15px; }
+        .section-title { background: #e0f7f4; color: var(--primary); padding: 8px 12px; font-weight: bold; border-left: 4px solid var(--primary); margin: 20px 0 10px; }
         .field { margin-bottom: 15px; }
-        label { display: block; font-weight: bold; margin-bottom: 5px; color: #555; }
-        input[type="text"], select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; box-sizing: border-box; }
-        
-        .checkbox-group { display: flex; flex-direction: column; gap: 8px; }
-        .check-item { display: flex; align-items: center; padding: 10px; border: 1px solid #eee; border-radius: 8px; cursor: pointer; }
-        input[type="checkbox"] { width: 20px; height: 20px; margin-right: 12px; accent-color: var(--primary); }
-
-        /* 相機按鈕樣式 */
-        .file-btn { background: #f8f9fa; border: 2px dashed var(--primary); padding: 20px; text-align: center; cursor: pointer; border-radius: 8px; color: var(--primary); font-weight: bold; margin-bottom: 10px; }
-        .preview-img { width: 100%; border-radius: 8px; display: none; margin-top: 10px; border: 2px solid var(--primary); }
-
-        .btn-submit { background: var(--primary); color: white; width: 100%; padding: 18px; border: none; border-radius: 10px; font-size: 1.2rem; font-weight: bold; cursor: pointer; margin-top: 25px; transition: 0.3s; }
-        .btn-submit:disabled { background: #ccc; cursor: not-allowed; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; color: #333; }
+        input[type="text"], textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; box-sizing: border-box; }
+        .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+        .check-item { display: flex; align-items: center; padding: 10px; border: 1px solid #eee; border-radius: 8px; background: #fff; }
+        input[type="checkbox"] { width: 20px; height: 20px; margin-right: 10px; }
+        .file-btn { background: #f8f9fa; border: 2px dashed var(--primary); padding: 20px; text-align: center; cursor: pointer; border-radius: 8px; color: var(--primary); font-weight: bold; }
+        #imagePreview { width: 100%; border-radius: 8px; display: none; margin-top: 10px; border: 1px solid var(--primary); }
+        .btn-submit { background: var(--primary); color: white; width: 100%; padding: 18px; border: none; border-radius: 10px; font-size: 1.2rem; font-weight: bold; cursor: pointer; margin-top: 20px; transition: 0.3s; }
+        .btn-submit:disabled { background: #999; cursor: not-allowed; }
     </style>
 </head>
 <body>
@@ -39,7 +35,7 @@
 
     <div class="content">
         <div class="field">
-            <label>場館位置 (Hall / Location)</label>
+            <label>場館位置 (Location)</label>
             <input type="text" id="location" placeholder="例如: Hall 1">
         </div>
         <div class="field">
@@ -49,19 +45,18 @@
 
         <div class="section-title">測試項目 (T&C Items)</div>
         <div class="checkbox-group">
-            <label class="check-item"><input type="checkbox" class="task" value="Installation"> 系統安裝 (Installation)</label>
-            <label class="check-item"><input type="checkbox" class="task" value="Diagnosis"> 系統診斷 (Diagnosis)</label>
-            <label class="check-item"><input type="checkbox" class="task" value="Replacement"> 零件更換 (Replacement)</label>
-            <label class="check-item"><input type="checkbox" class="task" value="Programming"> 系統編程 (Programming)</label>
+            <label class="check-item"><input type="checkbox" class="task" value="Installation"> 系統安裝</label>
+            <label class="check-item"><input type="checkbox" class="task" value="Diagnosis"> 系統診斷</label>
+            <label class="check-item"><input type="checkbox" class="task" value="Replacement"> 零件更換</label>
         </div>
 
         <div class="section-title">數據紀錄</div>
         <div class="field">
-            <label>阻抗 (Impedance Ω)</label>
+            <label>阻抗 (Ω)</label>
             <input type="text" id="impedance" placeholder="例如: 8.5">
         </div>
         <div class="field">
-            <label>音量 (Sound Level dB)</label>
+            <label>音量 (dB)</label>
             <input type="text" id="dbLevel" placeholder="例如: 98">
         </div>
 
@@ -69,7 +64,7 @@
         <div class="field">
             <div class="file-btn" onclick="document.getElementById('photoInput').click()">📸 點擊拍照或上傳相片</div>
             <input type="file" id="photoInput" accept="image/*" capture="camera" style="display:none" onchange="previewFile()">
-            <img id="imagePreview" class="preview-img">
+            <img id="imagePreview">
         </div>
 
         <div class="field">
@@ -77,14 +72,14 @@
             <textarea id="remarks" rows="2"></textarea>
         </div>
 
-        <button id="submitBtn" class="btn-submit" onclick="submitToSheet()">確認提交 (數據 + 相片)</button>
+        <button id="submitBtn" class="btn-submit" onclick="submitToSheet()">確認提交 (連壓縮相片)</button>
     </div>
 </div>
 
 <script>
     let base64Image = "";
 
-    // 處理圖片預覽與自動壓縮 (降低傳輸負荷)
+    // 圖片 Resize 與 壓縮邏輯
     function previewFile() {
         const file = document.getElementById('photoInput').files[0];
         const reader = new FileReader();
@@ -95,14 +90,17 @@
             img.src = reader.result;
             img.onload = function() {
                 const canvas = document.createElement('canvas');
-                const maxWidth = 800; // 壓縮至 800px 寬
+                // 將相片寬度限制在 600px，大幅減少檔案大小
+                const maxWidth = 600; 
                 const scale = maxWidth / img.width;
                 canvas.width = maxWidth;
                 canvas.height = img.height * scale;
+                
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                // 壓縮為 0.7 質量的 JPEG
-                base64Image = canvas.toDataURL('image/jpeg', 0.7);
+                
+                // 使用 JPEG 格式並設定品質為 0.5 (50%)
+                base64Image = canvas.toDataURL('image/jpeg', 0.5);
                 preview.src = base64Image;
                 preview.style.display = 'block';
             }
@@ -110,52 +108,7 @@
         if (file) reader.readAsDataURL(file);
     }
 
-    // 核心提交功能
     async function submitToSheet() {
         const btn = document.getElementById('submitBtn');
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzuoOcwtbc2BN8bg53IlYGTn6J3HFDIgaOSW04U94UIKRWUJ1WKR3zY6a09Ncsi3265YA/exec'; 
-        
-        let loc = document.getElementById('location').value;
-        let id = document.getElementById('speakerId').value;
-        
-        if(!loc || !id) { 
-            alert('請填寫場館位置及設備 ID！'); 
-            return; 
-        }
-
-        btn.disabled = true;
-        btn.innerText = "傳送中... (請勿關閉網頁)";
-
-        const payload = {
-            location: loc,
-            speakerId: id,
-            tasks: Array.from(document.querySelectorAll('.task:checked')).map(t => t.value).join(", "),
-            impedance: document.getElementById('impedance').value || "-",
-            dbLevel: document.getElementById('dbLevel').value || "-",
-            remarks: document.getElementById('remarks').value || "-",
-            image: base64Image
-        };
-
-        try {
-            // 使用 fetch 傳送 POST
-            const response = await fetch(scriptURL, {
-                method: 'POST',
-                mode: 'no-cors', // 處理跨域
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-
-            // 由於 no-cors 模式下無法讀取正確的 response，我們假設傳送成功後清空頁面
-            alert('✅ 報告已成功傳送！請檢查 Google Sheet 及 Drive。');
-            location.reload(); 
-        } catch (error) {
-            console.error('Error!', error.message);
-            alert('❌ 提交失敗，請檢查網絡連線後重試。');
-            btn.disabled = false;
-            btn.innerText = "重新提交";
-        }
-    }
-</script>
-
-</body>
-</html>
+        // 使用你提供的新 Web App URL
+        const scriptURL = '
