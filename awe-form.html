@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWE PA System Upgrade | TRINITY</title>
+    <title>AWE PA Project Form | TRINITY</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #00BFA5; --secondary: #2D3436; --bg: #f0f4f3; }
-        body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); margin: 0; padding: 15px; color: #333; }
-        .form-card { max-width: 500px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.1); overflow: hidden; }
+        :root { --primary: #00BFA5; --secondary: #2D3436; --bg: #f4f7f6; }
+        body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); margin: 0; padding: 15px; }
+        .form-card { max-width: 500px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
         .header { background: var(--secondary); color: white; padding: 25px; text-align: center; border-bottom: 5px solid var(--primary); }
         .header h2 { margin: 0; font-size: 1.3rem; letter-spacing: 1px; }
         .header p { margin: 8px 0 0; font-size: 0.85rem; opacity: 0.8; }
         .content { padding: 25px; }
-        .section-title { background: #e0f7f4; color: var(--primary); padding: 10px 15px; font-weight: bold; border-left: 5px solid var(--primary); margin: 25px 0 15px; border-radius: 0 4px 4px 0; }
-        .field { margin-bottom: 20px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; color: #444; }
-        input[type="text"], select, textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; box-sizing: border-box; transition: 0.3s; }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 8px rgba(0,191,165,0.2); }
-        .checkbox-group { display: flex; flex-direction: column; gap: 12px; }
-        .check-item { display: flex; align-items: center; padding: 14px; border: 1px solid #eee; border-radius: 8px; cursor: pointer; transition: 0.2s; }
-        .check-item:hover { background: #f9f9f9; border-color: var(--primary); }
-        input[type="checkbox"] { width: 22px; height: 22px; margin-right: 15px; accent-color: var(--primary); }
-        .btn-submit { background: var(--primary); color: white; width: 100%; padding: 20px; border: none; border-radius: 10px; font-size: 1.2rem; font-weight: bold; cursor: pointer; margin-top: 35px; box-shadow: 0 4px 15px rgba(0,191,165,0.3); transition: 0.3s; }
-        .btn-submit:active { transform: scale(0.98); }
-        .btn-submit:disabled { background: #ccc; cursor: not-allowed; box-shadow: none; }
-        .footer { text-align: center; margin-top: 20px; font-size: 0.8rem; color: #999; }
+        .section-title { background: #e0f7f4; color: var(--primary); padding: 8px 12px; font-weight: bold; border-left: 4px solid var(--primary); margin: 20px 0 15px; }
+        .field { margin-bottom: 18px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; color: #555; }
+        input[type="text"], select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; box-sizing: border-box; }
+        .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+        .check-item { display: flex; align-items: center; padding: 12px; border: 1px solid #eee; border-radius: 8px; cursor: pointer; }
+        input[type="checkbox"] { width: 22px; height: 22px; margin-right: 12px; accent-color: var(--primary); }
+        .file-btn { background: #f8f9fa; border: 2px dashed var(--primary); padding: 20px; text-align: center; cursor: pointer; border-radius: 8px; color: var(--primary); font-weight: bold; margin-bottom: 10px; }
+        .preview-img { width: 100%; border-radius: 8px; display: none; margin-top: 10px; border: 2px solid var(--primary); }
+        .btn-submit { background: var(--primary); color: white; width: 100%; padding: 18px; border: none; border-radius: 10px; font-size: 1.2rem; font-weight: bold; cursor: pointer; margin-top: 30px; transition: 0.3s; }
+        .btn-submit:disabled { background: #ccc; cursor: not-allowed; }
+        .btn-submit:hover:not(:disabled) { background: #00897B; transform: translateY(-2px); }
     </style>
 </head>
 <body>
@@ -39,98 +38,4 @@
     <div class="content">
         <div class="field">
             <label>Hall / Location (場館位置)</label>
-            <select id="location">
-                <option value="">-- 請選擇 --</option>
-                <option value="Hall 1">Hall 1</option><option value="Hall 2">Hall 2</option>
-                <option value="Hall 3">Hall 3</option><option value="Hall 5">Hall 5</option>
-                <option value="Hall 6">Hall 6</option><option value="Hall 7">Hall 7</option>
-                <option value="Hall 8">Hall 8</option><option value="Hall 9">Hall 9</option>
-                <option value="Hall 10">Hall 10</option><option value="Hall 11">Hall 11</option>
-            </select>
-        </div>
-
-        <div class="field">
-            <label>Speaker ID / Unit No.</label>
-            <input type="text" id="speakerId" placeholder="例如: SPK-H1-05" autocomplete="off">
-        </div>
-
-        <div class="section-title">Testing & Commissioning</div>
-        <div class="checkbox-group">
-            <label class="check-item"><input type="checkbox" class="task" value="Installation"> 系統安裝 (Installation)</label>
-            <label class="check-item"><input type="checkbox" class="task" value="Diagnosis"> 系統診斷 (Diagnosis)</label>
-            <label class="check-item"><input type="checkbox" class="task" value="Replacement"> 零件更換 (Replacement)</label>
-            <label class="check-item"><input type="checkbox" class="task" value="Programming"> 系統編程 (Programming)</label>
-        </div>
-
-        <div class="section-title">技術數據 (Technical Data)</div>
-        <div class="field">
-            <label>Impedance (阻抗 Ω)</label>
-            <input type="text" id="impedance" placeholder="輸入測試阻抗" inputmode="decimal">
-        </div>
-        <div class="field">
-            <label>Sound Level (音量 dB)</label>
-            <input type="text" id="dbLevel" placeholder="輸入測試音量" inputmode="decimal">
-        </div>
-
-        <div class="field">
-            <label>備註 (Remarks)</label>
-            <textarea id="remarks" rows="2" placeholder="如有異常請註明..."></textarea>
-        </div>
-
-        <button id="submitBtn" class="btn-submit" onclick="submitToSheet()">確認提交至 Google Sheet</button>
-        <div class="footer">Internal Use Only | Trinity Techs</div>
-    </div>
-</div>
-
-<script>
-    function submitToSheet() {
-        const btn = document.getElementById('submitBtn');
-        // 已填入你的專屬部署網址
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbz0mwKuYmeibknn-e8tXCRaX1HTVajf89NHLrvkaw1gQVQkRCNFsJrA1Xv_BsS3RR0Ltw/exec'; 
-        
-        let loc = document.getElementById('location').value;
-        let id = document.getElementById('speakerId').value;
-        let tasks = Array.from(document.querySelectorAll('.task:checked')).map(t => t.value).join(", ");
-        
-        if(!loc || !id) { 
-            alert('請完整填寫場館位置及設備編號！'); 
-            return; 
-        }
-
-        if(confirm("確定要提交此完工紀錄嗎？")) {
-            btn.disabled = true;
-            btn.innerText = "正在傳送數據...";
-
-            const payload = {
-                location: loc,
-                speakerId: id,
-                tasks: tasks || "N/A",
-                impedance: document.getElementById('impedance').value || "-",
-                dbLevel: document.getElementById('dbLevel').value || "-",
-                remarks: document.getElementById('remarks').value || "-"
-            };
-
-            // 使用 fetch 傳送資料到 Google Apps Script
-            fetch(scriptURL, {
-                method: 'POST',
-                mode: 'no-cors', // 處理跨域問題
-                cache: 'no-cache',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            })
-            .then(() => {
-                alert('✅ 完工紀錄已成功存入 Google Sheet！');
-                location.reload(); 
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                alert('❌ 傳送失敗，請檢查網路連線後重試。');
-                btn.disabled = false;
-                btn.innerText = "重新提交";
-            });
-        }
-    }
-</script>
-
-</body>
-</html>
+            <input type="text" id="location" placeholder="例如: Hall
